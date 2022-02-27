@@ -100,9 +100,12 @@ var rootResolver = {
             return BookList.find({})
         },
         getBy:async(parent,args)=>{
-            return CreateList.find({})
+            return CreateList.find({"city":args.city, "postal_code":args.postal_code})
         }
     ,
+        viewlistings:async(parent,args)=>{
+            return CreateList.find({})
+        },
         addUser: (args)=>{
             console.log(args)
 
@@ -147,7 +150,7 @@ var rootResolver = {
         login: (args) =>{
             console.log(args.username)
             
-            if(User.find( {  "username": args.username, "password": args.password },(err, data)=>{
+            if(User.find( { "username": args.username, "password": args.password },(err, data)=>{
                 if (err) throw err
                 console.log(data)
                 console.log(data[0].password)
