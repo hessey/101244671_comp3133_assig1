@@ -106,6 +106,7 @@ var rootResolver = {
         viewlistings:async(parent,args)=>{
             return CreateList.find({})
         },
+        
         addUser: (args)=>{
             console.log(args)
 
